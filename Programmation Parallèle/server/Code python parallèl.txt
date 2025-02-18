@@ -1,0 +1,88 @@
+TP1
+Code serveur
+
+1. # Définition d'un serveur réseau rudimentaire
+2. # Ce serveur attend la connexion d'un client
+3.
+4. import socket, sys
+5.
+6. HOST = '192.168.1.168'
+7. PORT = 50000
+8. counter =0 # compteur de connexions actives
+9.
+10. # 1) création du socket :
+11. mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+12.
+13. # 2) liaison du socket à une adresse précise :
+14. try:
+15. mySocket.bind((HOST, PORT))
+16. except socket.error:
+17. print("La liaison du socket à l'adresse choisie a échoué.")
+18. sys.exit
+19.
+20. while 1:
+21. # 3) Attente de la requête de connexion d'un client :
+22. print("Serveur prêt, en attente de requêtes ...")
+23. mySocket.listen(2)
+24.
+25. # 4) Etablissement de la connexion :
+26. connexion, adresse = mySocket.accept()
+27. counter +=1
+28. print("Client connecté, adresse IP %s, port %s" % (adresse[0], adresse[1]))
+29.
+30. # 5) Dialogue avec le client :
+31. msgServeur ="Vous êtes connecté au serveur ENI_GIT. Envoyez vos messages."
+32. connexion.send(msgServeur.encode("Utf8"))
+33. msgClient = connexion.recv(1024).decode("Utf8")
+34. while 1:
+35. print("C>", msgClient)
+36. if msgClient.upper() == "FIN" or msgClient =="":
+37. break
+38. msgServeur = input("S> ")
+39. connexion.send(msgServeur.encode("Utf8"))
+40. msgClient = connexion.recv(1024).decode("Utf8")
+41.
+42. # 6) Fermeture de la connexion :
+43. connexion.send("fin".encode("Utf8"))
+44. print("Connexion interrompue.")
+45. connexion.close()
+46.
+47. ch = input("<R>ecommencer <T>erminer ? ")
+48. if ch.upper() =='T':
+49. break
+
+Client:
+
+1. # Définition d'un client réseau rudimentaire
+2. # Ce client dialogue avec un serveur ad hoc
+3.
+4. import socket, sys
+5.
+6. HOST = '192.168.1.168'
+7. PORT = 50000
+8.
+9. # 1) création du socket :
+10. mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+11.
+12. # 2) envoi d'une requête de connexion au serveur :
+13. try:
+14. mySocket.connect((HOST, PORT))
+15. except socket.error:
+16. print("La connexion a échoué.")
+17. sys.exit()
+18. print("Connexion établie avec le serveur.")
+19.
+20. # 3) Dialogue avec le serveur :
+21. msgServeur = mySocket.recv(1024).decode("Utf8")
+22.
+23. while 1:
+24. if msgServeur.upper() == "FIN" or msgServeur =="":
+25. break
+26. print("S>", msgServeur)
+27. msgClient = input("C> ")
+28. mySocket.send(msgClient.encode("Utf8"))
+29. msgServeur = mySocket.recv(1024).decode("Utf8")
+30.
+31. # 4) Fermeture de la connexion :
+32. print("Connexion interrompue.")
+33. mySocket.close()
