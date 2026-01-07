@@ -1,0 +1,39 @@
+﻿-----------------------------------------------------------------------------
+
+https://www.softwaretestinghelp.com/big-data-tutorial/
+https://www.softwaretestinghelp.com/machine-learning-tutorial
+https://www.softwaretestinghelp.com/data-warehousing-fundamentals/
+https://www.softwaretestinghelp.com/data-mining-techniques/
+https://www.softwaretestinghelp.com/python/
+
+-------------------VERY COMPREHENSIVE TUTORIAL:-----------------------------------
+
+https://www.dezyre.com/tutorial
+
+https://www.projectpro.io/article/difference-between-data-analyst-and-data-scientist/332
+
+-------------VERY COMPREHENSIVE TUTORIAL:----------------------------------------------
+
+-------Good Link for Spark API usage:------------------------------------------
+
+http://apachesparkbook.blogspot.com/search/label/a32%7C%20spark-submit 
+
+----Good Link for Spark API usage:---------------------------------------------
+
+-------lien sur site lyon2 datamining 4 TP--------------------------------------
+
+http://eric.univ-lyon2.fr/~ricco/cours/supports_data_mining.html
+http://chirouble.univ-lyon2.fr/~ricco/data-mining/
+
+-------lien sur site lyon2 datamining 4 TP--------------------------------------
+
+lien sur site lyon2 datamining:
+
+cours magistraux en data mining
+
+http://personal.psu.edu/jol2/course/stat557/material.html
+
+http://eric.univ-lyon2.fr/~ricco/cours/supports_data_mining.html
+
+http://chirouble.univ-lyon2.fr/~ricco/data-mining/
+
